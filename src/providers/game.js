@@ -56,7 +56,7 @@ const useGame = () => {
     setUserTotal(userScore);
     setDealerTotal(dealerScore);
     setHasUserWon((() => {
-      if (userScore <= 21 && dealerScore >= 21) {
+      if (userScore <= 21 && dealerScore > 21) {
         return true;
       } else if (userScore < 21 && (21 - dealerScore) > (21 - userScore)) {
         return true;
