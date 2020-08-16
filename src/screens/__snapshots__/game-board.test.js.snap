@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameBoard should render correctly 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "setUser": [Function],
+      "user": undefined,
+    }
+  }
+>
+  <Provider>
+    <GameBoard />
+  </Provider>
+</ContextProvider>
+`;

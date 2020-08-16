@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Modal } from 'react-native';
+import { View, Text, StyleSheet, Modal, FlatList } from 'react-native';
 import { UserProvider, GameProvider } from '../providers';
 import { Button } from '../components/button';
 import { en } from '../assets/locale';
 import colors from './../assets/colors';
 
 import scaling from '../config/device/normalize';
-import { FlatList } from 'react-native-gesture-handler';
 const {
   normalize,
   widthScale,
@@ -74,24 +73,26 @@ export const GameBoard = () => {
           </>
           : null
       }
-
       <Button
+        testID={'draw'}
         isDisabled={userHand.length > 20 || deck.length < 21}
         title={en.DRAW}
         onPress={onDraw}
         buttonStyle={styles.drawButton}
       />
       <Button
+        testID={'reveal'}
         isDisabled={!userHand.length}
         title={en.REVEAL}
         onPress={onReveal}
         buttonStyle={styles.drawButton}
       />
-      <Modal transparent visible={showModal} onRequestClose={onRequestClose} animated animationType={'slide'}>
+      <Modal testID={'modal'} transparent visible={showModal} onRequestClose={onRequestClose} animated animationType={'slide'}>
         <View style={styles.modalContainer}>
           <Text style={styles.title}>{hasUserWon ? en.YOU_WIN : en.YOU_LOSE}</Text>
           <Text style={styles.subTitle}>{en.YOUR_HAND + ': ' + userTotal}</Text>
           <FlatList
+            testID={'userHand'}
             style={styles.listStyle}
             data={userHand}
             keyExtractor={(item, index) => item.title + index}
@@ -100,6 +101,7 @@ export const GameBoard = () => {
           />
           <Text style={styles.subTitle}>{en.DEALER_HAND + ': ' + dealerTotal}</Text>
           <FlatList
+            testID={'dealerHand'}
             style={styles.listStyle}
             data={dealerHand}
             keyExtractor={(item, index) => item.title + index}
