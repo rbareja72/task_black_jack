@@ -1,11 +1,11 @@
 ## TASK: Black Jack
 
 ### Pre-requisites
-[x] Node and NPM
-[x] JDK 8
-[x] Android SDK and build tools
-[x] Xcode
-[x] Cocoa Pods
+ - [x] Node and NPM
+ - [x] JDK 8
+ -  [x] Android SDK and build tools
+ - [x] Xcode
+ - [x] Cocoa Pods
 
 ### Project Setup
 1. After cloning, in the project directory, Execute
